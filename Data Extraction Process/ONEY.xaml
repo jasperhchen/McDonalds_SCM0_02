@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1156,7930</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1156,7901</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ONEY_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="40">
@@ -60,7 +60,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="37">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="74">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -98,9 +98,10 @@
       <AssemblyReference>UiPath.Database</AssemblyReference>
       <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ONEY" sap:VirtualizedContainerService.HintSize="1065,7865" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ONEY" sap:VirtualizedContainerService.HintSize="1065,7836" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="OneyDataTable" />
     </Sequence.Variables>
@@ -120,7 +121,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotAsset>
-    <ui:CommentOut DisplayName="TEST後門_Comment Out" sap:VirtualizedContainerService.HintSize="1023,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+    <ui:CommentOut DisplayName="TEST後門_Comment Out" sap:VirtualizedContainerService.HintSize="1023,22" sap2010:WorkflowViewState.IdRef="CommentOut_3">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,221" sap2010:WorkflowViewState.IdRef="Sequence_27">
           <sap:WorkflowViewStateService.ViewState>
@@ -425,7 +426,7 @@
                                     <OutArgument x:TypeArguments="x:String">[WebPortOfDischarge]</OutArgument>
                                   </ui:AssignOperation.To>
                                   <ui:AssignOperation.Value>
-                                    <InArgument x:TypeArguments="x:String">[CurrentRow("Port of Discharging").ToString.ToUpper.Substring(0,CurrentRow("Port of Discharging").ToString.ToUpper.IndexOf(","))]</InArgument>
+                                    <InArgument x:TypeArguments="x:String">[CurrentRow("Port of Discharging").ToString.ToUpper.Substring(0,CurrentRow("Port of Discharging").ToString.ToUpper.IndexOf(",")).Trim]</InArgument>
                                   </ui:AssignOperation.Value>
                                 </ui:AssignOperation>
                                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
@@ -433,7 +434,7 @@
                                     <OutArgument x:TypeArguments="x:String">[ExcelPortOfDischarge]</OutArgument>
                                   </ui:AssignOperation.To>
                                   <ui:AssignOperation.Value>
-                                    <InArgument x:TypeArguments="x:String">[in_placeOfDelivery.ToUpper.Substring(0,in_placeOfDelivery.ToUpper.IndexOf(","))]</InArgument>
+                                    <InArgument x:TypeArguments="x:String">[in_placeOfDelivery.ToUpper.Substring(0,in_placeOfDelivery.ToUpper.IndexOf(",")).Trim]</InArgument>
                                   </ui:AssignOperation.Value>
                                 </ui:AssignOperation>
                               </scg:List>
