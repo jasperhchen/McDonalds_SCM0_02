@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1203,7761</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1156,7930</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ONEY_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="40">
@@ -60,7 +60,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="74">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="37">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -98,10 +98,9 @@
       <AssemblyReference>UiPath.Database</AssemblyReference>
       <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ONEY" sap:VirtualizedContainerService.HintSize="1065,7696" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ONEY" sap:VirtualizedContainerService.HintSize="1065,7865" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="OneyDataTable" />
     </Sequence.Variables>
@@ -160,13 +159,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: ONE : Cargo Tracking" sap:VirtualizedContainerService.HintSize="1023,5342" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="WindowMessages" IsIncognito="True" OpenMode="IfNotOpen" Timeout="8" Version="V1" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: ONE : Cargo Tracking" sap:VirtualizedContainerService.HintSize="1023,5511" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="WindowMessages" IsIncognito="True" OpenMode="IfNotOpen" Timeout="8" Version="V1" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="989,5126" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="989,5295" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="CaptchaAppear" />
               <Variable x:TypeArguments="x:Boolean" Name="TableAppear" />
@@ -259,7 +258,7 @@
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="947,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[&quot;TableAppear&quot;+TableAppear.ToString]" />
-            <If Condition="[not TableAppear]" sap:VirtualizedContainerService.HintSize="947,3655" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[not TableAppear]" sap:VirtualizedContainerService.HintSize="947,3824" sap2010:WorkflowViewState.IdRef="If_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -267,7 +266,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="639,3496" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                <Sequence sap:VirtualizedContainerService.HintSize="639,3665" sap2010:WorkflowViewState.IdRef="Sequence_16">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
                     <Variable x:TypeArguments="x:String" Name="SQLconnectString" />
@@ -399,22 +398,48 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:DatabaseDisconnect>
                   </Sequence>
-                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[OneyDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="597,1143" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[OneyDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="597,1312" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                     <ui:ForEachRow.Body>
                       <ActivityAction x:TypeArguments="sd:DataRow">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="563,1022" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,1191" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="WebPortOfDischarge" />
+                            <Variable x:TypeArguments="x:String" Name="ExcelPortOfDischarge" />
+                          </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="521,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[in_placeOfDelivery]" />
-                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="521,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[CurrentRow(&quot;Port of Discharging&quot;).ToString.ToUpper.Contains( in_placeOfDelivery).ToString]" />
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="521,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Warn" Message="[&quot;CurrentRow toupper___&quot;+CurrentRow(&quot;Port of Discharging&quot;).ToString.ToUpper+vbCr+&#xD;&#xA;&quot;in_placeOfDelivery_&quot;+in_placeOfDelivery]" />
-                          <If Condition="[CurrentRow(&quot;Port of Discharging&quot;).ToString.ToUpper.Contains( in_placeOfDelivery)]" sap:VirtualizedContainerService.HintSize="521,595" sap2010:WorkflowViewState.IdRef="If_4">
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[in_placeOfDelivery]" />
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[CurrentRow(&quot;Port of Discharging&quot;).ToString.ToUpper.Contains( in_placeOfDelivery).ToString]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Warn" Message="[&quot;CurrentRow toupper___&quot;+CurrentRow(&quot;Port of Discharging&quot;).ToString.ToUpper+vbCr+&#xA;&quot;in_placeOfDelivery_&quot;+in_placeOfDelivery]" />
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="484,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                            <ui:MultipleAssign.AssignOperations>
+                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[WebPortOfDischarge]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">[CurrentRow("Port of Discharging").ToString.ToUpper.Substring(0,CurrentRow("Port of Discharging").ToString.ToUpper.IndexOf(","))]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                                  <ui:AssignOperation.To>
+                                    <OutArgument x:TypeArguments="x:String">[ExcelPortOfDischarge]</OutArgument>
+                                  </ui:AssignOperation.To>
+                                  <ui:AssignOperation.Value>
+                                    <InArgument x:TypeArguments="x:String">[in_placeOfDelivery.ToUpper.Substring(0,in_placeOfDelivery.ToUpper.IndexOf(","))]</InArgument>
+                                  </ui:AssignOperation.Value>
+                                </ui:AssignOperation>
+                              </scg:List>
+                            </ui:MultipleAssign.AssignOperations>
+                          </ui:MultipleAssign>
+                          <If Condition="[WebPortOfDischarge.Equals( ExcelPortOfDischarge)]" sap:VirtualizedContainerService.HintSize="484,595" sap2010:WorkflowViewState.IdRef="If_4">
                             <If.Then>
                               <Sequence sap:VirtualizedContainerService.HintSize="376,417" sap2010:WorkflowViewState.IdRef="Sequence_19">
                                 <sap:WorkflowViewStateService.ViewState>
