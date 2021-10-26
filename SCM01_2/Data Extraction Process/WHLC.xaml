@@ -1,0 +1,608 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="MDMU" this:MDMU.in_bookingNumber="163BA04874" this:MDMU.in_counter="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_bookingNumber" Type="InArgument(x:String)" />
+    <x:Property Name="out_estimatedArrivalDate" Type="OutArgument(x:String)" />
+    <x:Property Name="out_estimatedDepartureDate" Type="OutArgument(x:String)" />
+    <x:Property Name="out_comment" Type="OutArgument(x:String)" />
+    <x:Property Name="TempFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_counter" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_SuccessScreenShotFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_PoNumber" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1734,5478</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>MDMU_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="74">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>System.Security</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="66">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="WHLC" sap:VirtualizedContainerService.HintSize="1744,5413" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+      <Variable x:TypeArguments="sd:DataTable" Name="Dt1" />
+      <Variable x:TypeArguments="sd:DataTable" Name="TempDT" />
+      <Variable x:TypeArguments="x:Boolean" Name="EstimatedDepartureDateAppear" />
+      <Variable x:TypeArguments="x:Boolean" Name="EstimatedArrivalDateAppear" />
+      <Variable x:TypeArguments="x:Boolean" Name="MoreDetailAppear" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: WAN HAI LINES LTD." sap:VirtualizedContainerService.HintSize="1702,1130" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="IfNotOpen" Timeout="6" Version="V1" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,914" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="AlreadyArrive" />
+              <Variable x:TypeArguments="x:Boolean" Name="OnTheWay" />
+              <Variable x:TypeArguments="x:String" Name="CaseType" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NSelectItem DisplayName="Select Item 'Ctnr No.'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Book No." Timeout="6">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="4">
+                  <x:String>Ctnr No.</x:String>
+                  <x:String>BL no.</x:String>
+                  <x:String>Release Number</x:String>
+                  <x:String>Book No.</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.wanhai.com/views/cargoTrack/CargoTrack.xhtml?file_num=65580&amp;parent_id=64738&amp;top_file_num=64735" DesignTimeRectangle="813, 491, 120, 28" ElementType="DropDown" FriendlyName="'Ctnr No.'" FullSelectorArgument="&lt;webctrl tag='SELECT' name='cargoType' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SELECT' name='cargoType' type='' aaname='' /&gt;" InformativeScreenshot="9cb1184fdd77794f3ad387d8be236c83.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' /&gt;" SearchSteps="Selector" />
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT q_ref_no1'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Text="[in_bookingNumber]" Timeout="6">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.wanhai.com/views/cargoTrack/CargoTrack.xhtml?file_num=65580&amp;parent_id=64738&amp;top_file_num=64735" DesignTimeRectangle="958, 491, 100, 26" ElementType="InputBox" FriendlyName="'INPUT q_ref_no1'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' id='q_ref_no1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' id='q_ref_no1' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAAeCAYAAADAZ1t9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACFSURBVGhD7dEhDsAgEAXR3v92K7gIZg3JNghIKqhlxPzkue/mKYeegeDbgVprAln7BIoIARwD9d4rM3XRbHAMNA9jDF00GxgIzEBwBoIzEJyB4AwEZyA4A8EZCM5AcAaCMxCcgeAMBGcgOAPBGQjOQHAGgjMQnIHgfgOJY20HcswZCL2qFwMLi3CLJBaIAAAAAElFTkSuQmCC" InformativeScreenshot="9a44ff639bfb2ef57f47de3b634de345.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' /&gt;" SearchSteps="Selector" />
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'INPUT  q_ref_no1'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[in_bookingNumber]">
+                    <ui:SetValue.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b02cae72-f680-416f-816b-2b393f98dd05" InformativeScreenshot="5fdafc2ada9f6c8d2239e6939c70e9b7" Selector="&lt;webctrl tag='INPUT' type='text' id='q_ref_no1' /&gt;" TimeoutMS="1500">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SetValue.Target>
+                  </ui:SetValue>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  Query'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6f1a3863-5976-4e37-be92-83b712b5a582" InformativeScreenshot="ff968e6a8f52b6036fa11cd1e12f1651" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' /&gt;&lt;webctrl tag='INPUT' type='submit' aaname='Query' class='button' /&gt;" TimeoutMS="1500">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Query'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" Timeout="5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.wanhai.com/views/cargoTrack/CargoTrack.xhtml?file_num=65580&amp;parent_id=64738&amp;top_file_num=64735" DesignTimeRectangle="892, 683, 77, 30" ElementType="Button" FriendlyName="'Query'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' aaname='Query' check:text='Query' /&gt;" ImageBase64="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" InformativeScreenshot="3b9c6171d0d95ae65080dd82a4dcff3c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' /&gt;" SearchSteps="FuzzySelector, Image" />
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -1088, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="362cf6e8b8e2fb7e8bada43e7a3cc6a9.png" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.'/&gt;" Url="https://www.wanhai.com/views/cargoTrack/CargoTrack.xhtml?file_num=65580&amp;parent_id=64738&amp;top_file_num=64735" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <Assign sap:VirtualizedContainerService.HintSize="1702,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[MoreDetailAppear]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1702,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_24">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+            <ui:UiElementExists.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f3fa8cb8-0d06-42d8-a0bd-4dff8e180795" InformativeScreenshot="ebabe0034a03bddf4e8741275d2f254d" Selector="&lt;html app='chrome.exe' title='https://www.wanhai.com/views/cargoTrack/CargoTrack.xhtml;jsessionid=4C70EBD1D7527BCE306D851B99A86ECC' /&gt;&lt;webctrl id='main-iframe' tag='IFRAME' /&gt;&lt;webctrl name='a-z92j52e9bwqh' tag='IFRAME' /&gt;&lt;webctrl id='rc-anchor-container' tag='DIV' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:UiElementExists.Target>
+          </ui:UiElementExists>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:UiElementExists DisplayName="Element Exists 'TD'" Exists="[MoreDetailAppear]" sap:VirtualizedContainerService.HintSize="1702,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+      <ui:UiElementExists.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="02e94977-2326-4167-98ef-0af99cd10c8d" InformativeScreenshot="7b79168a2d031e84d12d1e8b61ff268e" Selector="[&quot;&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tag='TD' aaname='&quot;+in_bookingNumber+&quot;*' /&gt;&quot;]" TimeoutMS="6000">
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:UiElementExists.Target>
+    </ui:UiElementExists>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1702,61" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[MoreDetailAppear.ToString]" />
+    <If Condition="[MoreDetailAppear]" sap:VirtualizedContainerService.HintSize="1702,2635" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="1394,2477" sap2010:WorkflowViewState.IdRef="Sequence_20">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: WAN HAI LINES LTD." sap:VirtualizedContainerService.HintSize="1352,2385" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" IsIncognito="False" OpenMode="Never" Timeout="6" Version="V1">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1318,2169" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ClickType="Single" DelayBefore="1" DisplayName="Click 'More Detail'" sap:VirtualizedContainerService.HintSize="1276,166" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" Timeout="6">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.wanhai.com/views/cargoTrack/BookingInfoList.xhtml?file_num=65580&amp;top_file_num=64735&amp;parent_id=64738" DesignTimeRectangle="459, 305, 83, 20" ElementType="Text" FriendlyName="'More Detail'" FullSelectorArgument="&lt;webctrl parentid='cargoTrackListBean' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='cargoTrackListBean' tag='A' type='' aaname='More Detail' check:text='More Detail' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFcAAAAYCAYAAACPxmHVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJBSURBVGhD7ZWxTgJBEIZ9KBsbH8E30MLCzucw0mgtvdiQ2EBtg4kJCIUJaEwMhsaL0RfQrMzNDTM7u3sgd4sW+ycbYG939p/vdoYtkxRNCW5EJbgRleBGVIIbUQluRCW4a+o7ezT7zZFpZ/z7oDk2ffyZS8GdmpOLgdlWi7S+xg/zNQNzdPtZzGxWmBj41KPcd52qAHdgzifFlEe9Tj9f87dwOTHSrHe/li+8LNVezIpwR6bRGZqdq2fzVsxKUZDGHPB/gwsqexbSRuG2s9fis5gWglsLUOlTitoFD/swMnCXPRVlzc/13rIXtwwgeNvtzopfoHdz2cJq076oCn3P8Bx+JmNqDyvCxZYAJWYbBBH8j9ysBIAlaSes58jQYdeuClwnjbEPn5bBhXhceRhLe5WV6b+5U3Pakj5tT5Xg4ncXFgLHm8CGQzDsdWhIr3PPAfFZrn4D1x/HPnPVtiAroiJcbgEoacgHzZ+sTM5nAPfKsuRR1veXwaUz3bLnQXmG4ep2wq1Be/DlVgpXbgADfAPqhhsG5VP5Htub239d+eDinF1ltd5cEAQ8G0OPHYpk7AR8+1DuS9AGwnvDKoOrQckWEZIPrl21qNrhYhBdohouJuH/Q+MD/XDDe0PAQ3AheR2HcrJvr/1n5YsHsWTO6LHGtkCCg+w5Fy6ISomGvjEhuCAyT0PHlsLEeC2NcPljXrzW9YAvRj6z94Cfijc3qU4t4O5dTxZvKY1q4/jmJWeabm5EJbgRleBGVIIbTcb8AF3RuUbVu3lxAAAAAElFTkSuQmCC" InformativeScreenshot="ab65218ec0a381cc1bf8621876b5e608.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' /&gt;" SearchSteps="FuzzySelector, Image">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="583, 295, 165, 41" ElementType="Text" FriendlyName="'025B670519'" FullSelectorArgument="&lt;webctrl parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tag='TD' /&gt;" FuzzySelectorArgument="[&quot;&lt;webctrl parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tag='TD' type='' aaname='&quot;+in_bookingNumber+&quot;*' check:text='&quot;+in_bookingNumber+&quot;' /&gt;&quot;]" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKkAAAAtCAYAAADV9EvhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMJSURBVHhe7ZlfihNBEIdzQ0E2efHFW+gmPggeQvz7oEfQRfDBIywEETyAD8sIuYBIOzU9nemuqp5MQiC/cX8fFJtM93TXdn3dM8sumqYJErvdrvvJYKBEcnIhHxgM5FiEHvlCCBLJSUpKYKGkBB5KSuChpAQeSkrgoaQEHkpK4KGkBB5KSuChpAQeSkrgoaQEHkpK4KGkBJ5ZSvpn+yosl8t9fNz2DXvuwqfrhyN9bLvE47c/+vYQft08GW3P0fmkft4YKR5tvobfXa9I3ne1fBa+NX1Dx+F8E7evH3Rtdk2EcpzV6n342bcgMztJRYh8cbvvRVHbQqzXRZHdPm2xXnzJNSkRaUqRtuHl1ZW5R/odV2w7t57Ljnk43yTnh+33Ls/axtUbUW8WRGYmaVxoXQApUO2Ui+giHy66V0B7rRXXnHrj/G1uwvUyF9Ab4/h8B+Jm0mukN3fEX080ZiWpFPipI4UUYPxEOJ+k+iQa3xwW2VD5vL48euzzSOqtkc4HkVlJWito7XrCyh2Lnt7NJLRsWlJvg6QCp0etxHF5+JtBKK8fznfgmJN0ylPo8twDSaecQrGwebFEklwKiXKMOO5mvSmEkKLXcvGEmCapxuY74Eua8s3vkXUbFx6D/1xSW5gaegxPErk29KnJX5Okve68qpwm6djvXJtfiG1p08m6yDx83J8R+0dHRApmCzpdUEE/in1JSgHS474kzqslkfG8XPzc6/0T3qtDZExSi/wOU/teillJWiuAleU4QYUpJ6me3xep7WPkqYvjy+aLnnPaSVpS2/RozEzSKEZeHFus2mN4QIrz/M0gVxSlfOf0JLXvm1GI/D7po++rnZYJfY+ee0q+AzVJ78Ln9TuT+xSZL83sJBWkiOm9Sp8meZsOLWHepovljeOLFoud+tiT9fCpKIioY/Ockq+Ell3kluv2v1q4zFJScr+gpAQeSkrgoaQEHkpK4KGkBB5KSuChpAQeSkrgoaQEHkpK4KGkBB5KSuChpASevaTygcFAjv1JSggqlJSAE8I/ueHfEC283nIAAAAASUVORK5CYII=" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1276,61" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[&quot;&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tag='TD' aaname='&quot;+in_bookingNumber+&quot;*' /&gt;&quot;]" />
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1276,51" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  #'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition OffsetX="-70" OffsetY="15" Position="TopLeft" />
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c0a8c78b-6f5b-4012-bf9d-78a4c131f573" InformativeScreenshot="7b79168a2d031e84d12d1e8b61ff268e" Selector="[&quot;&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tag='TD' aaname='&quot;+in_bookingNumber+&quot;*' /&gt;&quot;]">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <Assign sap:VirtualizedContainerService.HintSize="1276,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[EstimatedDepartureDateAppear]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="1276,61" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[EstimatedArrivalDateAppear]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Parallel sap:VirtualizedContainerService.HintSize="1276,152" sap2010:WorkflowViewState.IdRef="Parallel_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:UiElementExists DisplayName="Estimated Departure Date Exists" Exists="[EstimatedDepartureDateAppear]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="480f05cf-16e1-488c-8024-6edd651f3a32" InformativeScreenshot="f6fb3d4e72f1045792871fbad0c05d7b" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl aaname='Place of Receipt Close Date Port of Loading Estimated Departure *' parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Close Date' rowName='Port of Loading' /&gt;" TimeoutMS="8000">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <ui:UiElementExists DisplayName="Estimated Arrival Date Exists" Exists="[EstimatedArrivalDateAppear]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ce90b0ec-0e94-4913-b101-cbc800c273ce" InformativeScreenshot="6faa32e414b63e2004bb3f790b81b3f6" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl aaname='Place of Receipt Close Date Port of Loading Estimated Departure *' parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Close Date' rowName='Place of Delivery' /&gt;" TimeoutMS="8000">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                  </Parallel>
+                  <If Condition="[EstimatedDepartureDateAppear and EstimatedArrivalDateAppear]" sap:VirtualizedContainerService.HintSize="1276,1283" sap2010:WorkflowViewState.IdRef="If_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="968,1124" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Parallel sap:VirtualizedContainerService.HintSize="926,751" sap2010:WorkflowViewState.IdRef="Parallel_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,705" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
+                              <ui:GetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6eb61bcb-35a9-4faa-b92e-77cdd18c8598" InformativeScreenshot="23953e306bd50fba4e9ba17b4df1d2d0" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl aaname='Place of Receipt Close Date Port of Loading Estimated Departure *' parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Close Date' rowName='Port of Loading' /&gt;" TimeoutMS="8000">
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:GetValue.Target>
+                              <ui:GetValue.Value>
+                                <OutArgument x:TypeArguments="x:String">[out_estimatedDepartureDate]</OutArgument>
+                              </ui:GetValue.Value>
+                            </ui:GetValue>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[out_estimatedDepartureDate]" />
+                            <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_3">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_estimatedDepartureDate]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[If(String.IsNullOrEmpty( out_estimatedDepartureDate),"", (out_estimatedDepartureDate.Replace("Coastal","").Replace("Actual", "")).TrimStart.TrimEnd)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_4">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_estimatedDepartureDate]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[if(String.IsNullOrEmpty( out_estimatedDepartureDate),"", Convert.ToDateTime(  out_estimatedDepartureDate).ToString("yyyy/MM/dd"))]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[out_estimatedDepartureDate]" />
+                          </Sequence>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,705" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_6">
+                              <ui:GetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="58a6c8f6-e87a-4057-a5b5-bd4a3562c70e" InformativeScreenshot="b75f1fc3b6ebc9d75a98351f22afa181" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl aaname='Place of Receipt Close Date Port of Loading Estimated Departure *' parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Close Date' rowName='Place of Delivery' /&gt;" TimeoutMS="8000">
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:GetValue.Target>
+                              <ui:GetValue.Value>
+                                <OutArgument x:TypeArguments="x:String">[out_estimatedArrivalDate]</OutArgument>
+                              </ui:GetValue.Value>
+                            </ui:GetValue>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[out_estimatedArrivalDate]" />
+                            <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_5">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_estimatedArrivalDate]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty( out_estimatedArrivalDate),"", out_estimatedArrivalDate.TrimStart.TrimEnd)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[out_estimatedArrivalDate]" />
+                            <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_6">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_estimatedArrivalDate]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty( out_estimatedArrivalDate),"", Convert.ToDateTime( out_estimatedArrivalDate).ToString("yyyy/MM/dd"))]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[out_estimatedArrivalDate]" />
+                          </Sequence>
+                        </Parallel>
+                        <If Condition="[out_estimatedDepartureDate.Length&lt;1 or out_estimatedArrivalDate.Length&lt;1]" sap:VirtualizedContainerService.HintSize="926,239" sap2010:WorkflowViewState.IdRef="If_3">
+                          <If.Then>
+                            <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_10">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_comment]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">2</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Then>
+                        </If>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_8">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[out_comment]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">2</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -1088, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="55959b9f7f192076ac4fc70253752724.png" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.'/&gt;" Url="https://www.wanhai.com/views/cargoTrack/BookingInfoList.xhtml?file_num=65580&amp;top_file_num=64735&amp;parent_id=64738" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Assign sap:VirtualizedContainerService.HintSize="263,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[out_comment]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">1</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="資料抓取結果_Log Message" sap:VirtualizedContainerService.HintSize="1702,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;out_comment_&quot;+out_comment+vbCr+&#xA;&quot;out_estimatedArrivalDate_&quot;+out_estimatedArrivalDate+vbCr+&#xA;&quot;out_estimatedDepartureDate_&quot;+out_estimatedDepartureDate]" />
+    <Sequence DisplayName="Take Screen Shot_Sequence" sap:VirtualizedContainerService.HintSize="1702,523" sap2010:WorkflowViewState.IdRef="Sequence_32">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="ui:Image" Name="ScreenShot" />
+        <Variable x:TypeArguments="x:String" Name="ScreenShotpath" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:TakeScreenshot DisplayName="Take Screenshot" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[ScreenShot]" WaitBefore="1500">
+        <ui:TakeScreenshot.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="d038ca3f-f3d4-4c31-a3e4-84b88d9ce7a3">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:TakeScreenshot.Target>
+      </ui:TakeScreenshot>
+      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[ScreenShotpath]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_SuccessScreenShotFolder+in_PoNumber+"_"+in_bookingNumber+".png"]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:SaveImage DisplayName="Save Image" FileName="[ScreenShotpath]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[ScreenShot]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;Succesful Info：Screen SHOT path&quot;+vbCr+&#xA;ScreenShotpath]" />
+    </Sequence>
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" ContinueOnError="True" DisplayName="Attach Browser 'chrome.exe WAN'" sap:VirtualizedContainerService.HintSize="1702,344" sap2010:WorkflowViewState.IdRef="BrowserScope_4" InformativeScreenshot="4ac1c2c7acd285614741264402d64dbe" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' url='https://www.wanhai.com/views/cargoTrack/BookingInfoPage.xhtml?file_num=65580&amp;amp;top_file_num=64735&amp;amp;parent_id=64738' /&gt;" TimeoutMS="8000">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_28">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayMS="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DelayBefore="800" DisplayName="Click 'A  javascript:top.close...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9030de79-c019-4287-8661-74ec1e834b92" InformativeScreenshot="f77f61ceac09e6bf6447c31ae1c11851" Selector="&lt;webctrl aaname='[Close Page]' /&gt;" TimeoutMS="5000">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:BrowserScope>
+  </Sequence>
+</Activity>
