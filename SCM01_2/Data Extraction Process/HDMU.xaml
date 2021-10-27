@@ -1,0 +1,639 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="MDMU" this:MDMU.in_counter="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_bookingNumber" Type="InArgument(x:String)" />
+    <x:Property Name="out_estimatedArrivalDate" Type="OutArgument(x:String)" />
+    <x:Property Name="out_estimatedDepartureDate" Type="OutArgument(x:String)" />
+    <x:Property Name="out_comment" Type="OutArgument(x:String)" />
+    <x:Property Name="TempFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_counter" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_SuccessScreenShotFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_PoNumber" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1216,5493</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>MDMU_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="76">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="66">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="HDMU" sap:VirtualizedContainerService.HintSize="1226,5428" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+      <Variable x:TypeArguments="sd:DataTable" Name="Dt1" />
+      <Variable x:TypeArguments="sd:DataTable" Name="TempDT" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1184,268" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,190" sap2010:WorkflowViewState.IdRef="Sequence_20">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[in_bookingNumber]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">DALA11641900</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: HMM" sap:VirtualizedContainerService.HintSize="1184,4728" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="IfNotOpen" Timeout="8" Version="V1" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1150,4512" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="AlreadyArrive" />
+              <Variable x:TypeArguments="x:Boolean" Name="OnTheWay" />
+              <Variable x:TypeArguments="x:String" Name="CaseType" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NSelectItem DisplayName="Select Item 'Cargo Tracking'" sap:VirtualizedContainerService.HintSize="1108,166" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Booking No." Timeout="5">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="3">
+                  <x:String>B/L No.</x:String>
+                  <x:String>Container No.</x:String>
+                  <x:String>Booking No.</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.hmm21.com/cms/company/engn/index.jsp" DesignTimeRectangle="1127, 160, 102, 22" ElementType="DropDown" FriendlyName="'B/L No.'" FullSelectorArgument="&lt;webctrl tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SELECT' type='' aaname='' /&gt;" InformativeScreenshot="17d974b9ee25d721cb3d93633eaffe73.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='hmm_currentURL' title='HMM' /&gt;" SearchSteps="FuzzySelector">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1032, 154, 95, 33" ElementType="Text" FriendlyName="'Cargo Tracking'" FullSelectorArgument="&lt;webctrl aaname='Cargo Tracking ' parentname='searchForm' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Cargo Tracking ' parentname='searchForm' tag='SPAN' type='' check:text='Cargo Tracking' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGMAAAAlCAYAAABWOlfkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKtSURBVGhD7Za/axRREMe3FxIlRUg0JJ2SKokx+j+YTvIHxMLOUgvBJhBREFEsxEIvjRjsIuf/cEGwOtAy578g1pOdPOZ23nff7t5eftygE/hANm/fvJn3mblL9nl2mRwbuAxDZJdmrpNjg+zKwh1ybOAyDOEyDOEyDOEyDOEyDNDv909wGQZgEfzjMgzgMgzhMgzhMgzhMoD5pS69+kW0s7taWptdfEtPD4nedV6X1s6CShlrz37Tl5+k+EMPt9ejdy6azb2/kJPmiO4t3E7ua4M5GaHo+PJv3P9B77sHw+dJwznu977TzcTaaaiTcd6UZIySDIvpqK78pCTJJT35Fq+Vu7roZDlT1ka5CJTBOX3MG+hxZzCMv7UYx0V5eC53PNYvz1wHTgbWyujcMb6cIetISUb4eKof+bt7g+HUiBhJQi5dJxViFpOmz8ACMV4VKRm8TzcGn4OXKufgM+fxqPM1kiG5SYyUDF1rqi7JB/emSMrADqojlSDuf5B3Dl6SJC0drT8S8f0UKRkYB9FxdQ76nULGm9LlNdUackjXNbaMpsmQwKnxq5KhkyjLiM/jGGclg8/WeWoZmCcTf7TEebWXUewfS4YeU/2iIEGlqKYEmUlNBsfR7+i4TZPB9aCw9jJOORkMH1L13xQG1cnLXpSBhYduDc8ol88Z9zujTiqeg3nz8/N8DZtRn9NGBr4rdclziqQMJlxgMd7lL+Di7x969TKYICDwojuI3pELkPUmEcwoMuQCdJ564uL1UAPKYGTCNlrIwPj7vSN6me+tq61SxnnCRehL+R84kQzNglyIDOz81OT8i3DTSc1M08RPZDKcNC7DEC7DEC7DECyDcRmGyGXw/8aOBbLL1zbIsUE2ffUWOTbIZaznvzgWyKbn18ixQTY1t0KOBVboGKtiFb7Z+zHIAAAAAElFTkSuQmCC" SearchSteps="Selector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NSelectItem.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NSelectItem>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Track'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1108,226" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Text="[in_bookingNumber]" Timeout="5">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.hmm21.com/cms/company/engn/index.jsp" DesignTimeRectangle="1237, 161, 165, 20" ElementType="InputBox" FriendlyName="'DALA63685200'" FullSelectorArgument="&lt;webctrl tag='INPUT' name='number' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' name='number' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKkAAAAYCAYAAACBQ93/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALrSURBVHhe7ZhPbtQwFIe5AgfgHl2wQGraDSuOAe1QqSzgFDAZFbHoFaqmlA1SbzBMEUicgMWoXKFCPOY3jsc/v9ip1IkqS3mf5EVsx//el5fMPHr8ZEesWCm5mKRWii8bSQ2jNExSo3hMUqN4TFKjeExSo3hMUqN4TFKjeO4t6T+5lve7u1JV1aa8mP1sWzVLOTt8lmz/ff5SThftRYLbbx9krzqSrzdthQL3+/lDPzdftz6g189rm0+fbur39z7Kr7Zej4vy/PUX+dO26na9L15rfJ/I35tzOajcevr2O0a2krSexAeN4OrDBwjAcX0pZ5MTCrjjLknn0wO5aGby7kKP6u7NPxgBzH9YBdnWgmZE0GPiIQl7WkmY2IOH96LniMeJ59F99XrHzqCSAoiqpYNoCAACpWXrkxTBerMOZFeO3Pw5/BpA35y6LZ6nX1INn4U+FyemExHnoh+21DmOlcEl1QeOfie1v15Ks8qofE+vME0dZSLuh+u3zY/e16sHfXU2/L6YZl69aJ+s53UiccZdtd3xGeFhCXnMQKjDGaQe3tTbY4wMLmnIfo7bRRMFR1/nJV3K55WEgfga4rEkWqj1dfvNGWcpJxrXYQ18jbG9iDrDMX2v5TgTmqTbMLikCHA4XCeED3gq8DlJWRRfWEq0a4FygUXf8AOoKwxnvZSwqe9sD39GeFLr6PbDOtynQ3xmjty5jJHBJeUMgkzzqemGd17PNtknFwzu4+HxdMYGfYFlSbQwYS9BHCYloke3pQQFup7PD3s5UmfZN+fYGFBSlzU5C+UOmjNHSqyUgA6WyM3n73XZMP2NiPH4tayzI9bg142HjGXS9zJ6HFzr7O7R48TzxHvR446drSTV/5OybF2JA9wGQXgMvJavmlfZjMhSI/Cp/xa53o/ZzY7hv1AtFrd1vntpzzxu6jxQWHjI5+v1nHx/ar1j5t6SGsZDYZIaxWOSGsVjkhrF05HUipVSi0lqpfCyI/8BkQmwuRq/9HEAAAAASUVORK5CYII=" InformativeScreenshot="be1062e657cd38caf2018f5f63e2fce0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='hmm_currentURL' title='HMM' /&gt;" SearchSteps="Selector">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1408, 161, 42, 20" FriendlyName="'Track'" FullSelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;  ' parentname='searchForm' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;  ' parentname='searchForm' tag='SPAN' type='' check:text='Track' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC4AAAAYCAYAAACFms+HAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVFhH3ZPdS1NhHMe77iJYoBtFZEvI/gMreiG78ipKrOwF5kmNLoLACAYKpbToxYSSVU4ltMlZm4m5mm/N2LSpO7MXCi92MaIX5yjooiB7+facs53tvDzPlRDndPG5+P1+3+d3PmfP2SrLhnKYEfOLr6tsMgVU8bdLMDRM8TdpGBqm+OtFGBqm+Esy/NeEemphPx7AJGWmhSk+/wl54i947Csuw+rirVSco4XsSnjSnRUPU2ZamOLxD0SYwkyCvIT1FG7M0+crYbiLg/1YAOOUmRam+Nx7UIkJWfG2hNwTUF+0BWc9flSQW1mTmz3ycKpbOR9S71HO19quwpvrieJjioy8T3lWhCkee0ckKUzFfaggy64Jck9AHRG3Hw1gJJ9bwsVmf74e7OQkuT5GHQn6pH1iX94TCbo0O9UwxadSRJLCs1kf9hLxK3PZOpoSwBHxxqA+K6M8E01l0HRkM6o6P+tyA3c5bKoJYHDYJb3YPc1cCVN8MvmbysQ0jz1EwvX8j1SHkwIc4qcyBF1ut+IPLV65eCacTMN5uFSXF+Hdhc/nwO2Mbq6EKT6ysEzlcaQfu6wNaIn+lOrQwixOEPEzA79UmZ1EWu6pz3zEuUOl2N+xmM/L9N6qhcV2Ge5cRrlTC1N86NUPKg8nvNhhrUfzU7k3g5qiMpz2LTMzAb6F/OKF2tPuIIIu3Mzlu9pbpZnYL6nm0Sf19XuVMMX9iW9U+NFebLfWwTmWrR8kplFNHtDQ/12Vu9BYkr/29QdPqs5o5xbbJVwnPXebAxurvOjJZcRnbSM3p90twhS/H/tqaJji3ZEvhoYpfiecMTRM8Y7xtKH5/8TNgE7cbJhUvBx/ASljjeUWMU4uAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Track'" sap:VirtualizedContainerService.HintSize="1108,166" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" Timeout="5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.hmm21.com/cms/company/engn/index.jsp" DesignTimeRectangle="1408, 161, 42, 20" FriendlyName="'Track'" FullSelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;  ' parentname='searchForm' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;  ' parentname='searchForm' tag='SPAN' type='' check:text='Track' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC4AAAAYCAYAAACFms+HAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVFhH3ZPdS1NhHMe77iJYoBtFZEvI/gMreiG78ipKrOwF5kmNLoLACAYKpbToxYSSVU4ltMlZm4m5mm/N2LSpO7MXCi92MaIX5yjooiB7+facs53tvDzPlRDndPG5+P1+3+d3PmfP2SrLhnKYEfOLr6tsMgVU8bdLMDRM8TdpGBqm+OtFGBqm+Esy/NeEemphPx7AJGWmhSk+/wl54i947Csuw+rirVSco4XsSnjSnRUPU2ZamOLxD0SYwkyCvIT1FG7M0+crYbiLg/1YAOOUmRam+Nx7UIkJWfG2hNwTUF+0BWc9flSQW1mTmz3ycKpbOR9S71HO19quwpvrieJjioy8T3lWhCkee0ckKUzFfaggy64Jck9AHRG3Hw1gJJ9bwsVmf74e7OQkuT5GHQn6pH1iX94TCbo0O9UwxadSRJLCs1kf9hLxK3PZOpoSwBHxxqA+K6M8E01l0HRkM6o6P+tyA3c5bKoJYHDYJb3YPc1cCVN8MvmbysQ0jz1EwvX8j1SHkwIc4qcyBF1ut+IPLV65eCacTMN5uFSXF+Hdhc/nwO2Mbq6EKT6ysEzlcaQfu6wNaIn+lOrQwixOEPEzA79UmZ1EWu6pz3zEuUOl2N+xmM/L9N6qhcV2Ge5cRrlTC1N86NUPKg8nvNhhrUfzU7k3g5qiMpz2LTMzAb6F/OKF2tPuIIIu3Mzlu9pbpZnYL6nm0Sf19XuVMMX9iW9U+NFebLfWwTmWrR8kplFNHtDQ/12Vu9BYkr/29QdPqs5o5xbbJVwnPXebAxurvOjJZcRnbSM3p90twhS/H/tqaJji3ZEvhoYpfiecMTRM8Y7xtKH5/8TNgE7cbJhUvBx/ASljjeUWMU4uAAAAAElFTkSuQmCC" InformativeScreenshot="27ef678a46e739d4b55581585a7c8472.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='hmm_currentURL' title='HMM' /&gt;" SearchSteps="FuzzySelector, Image" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <Assign sap:VirtualizedContainerService.HintSize="1108,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[AlreadyArrive]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="1108,61" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[OnTheWay]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Parallel sap:VirtualizedContainerService.HintSize="1108,152" sap2010:WorkflowViewState.IdRef="Parallel_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[AlreadyArrive]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                <ui:UiElementExists.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1d5c3050-f920-414e-92d7-7006df4e8d40" InformativeScreenshot="7c4dcb3afe38646804c9cec263a03190" Selector="[&quot;&lt;html app='chrome.exe' htmlwindowname='_abck' title='HMM Customer Plus' url='https://www.hmm21.com/cms/business/ebiz/trackTrace/trackTrace/index.jsp?type=3&amp;amp;number=&quot;+ in_bookingNumber+&quot;&amp;amp;is_quick=Y&amp;amp;quick_params=' /&gt;&lt;webctrl id='_frame1' tag='IFRAME' /&gt;&lt;webctrl parentid='viewForm' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Loading Port' rowName='Departure' /&gt;&quot;]" TimeoutMS="6000" WaitForReady="COMPLETE" />
+                </ui:UiElementExists.Target>
+              </ui:UiElementExists>
+              <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[OnTheWay]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                <ui:UiElementExists.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="22bcd255-55bf-477d-ba6b-31dcce97174d" InformativeScreenshot="b54245f4879bfa21bfe5ae705129bbb7" Selector="[&quot;&lt;html app='chrome.exe' htmlwindowname='_abck' title='HMM Customer Plus' url='https://www.hmm21.com/cms/business/ebiz/trackTrace/trackTrace/index.jsp?type=3&amp;amp;number=&quot;+ in_bookingNumber+&quot;&amp;amp;is_quick=Y&amp;amp;quick_params=' /&gt;&lt;webctrl id='_frame1' tag='IFRAME' /&gt;&lt;webctrl aaname='Vessel/Voyage From Location Departure Date To Location Arrival D*' parentid='trackingForm' tag='TABLE' /&gt;&lt;webctrl tableCol='3' tag='TD' colName='Departure Date' /&gt;&quot;]" TimeoutMS="6000" WaitForReady="COMPLETE" />
+                </ui:UiElementExists.Target>
+              </ui:UiElementExists>
+            </Parallel>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1108,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Booking Number is &quot;+in_bookingNumber]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1108,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Already arrive is &quot;+AlreadyArrive.ToString]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1108,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;On the way is &quot;+OnTheWay.ToString]" />
+            <Assign sap:VirtualizedContainerService.HintSize="1108,61" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[CaseType]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[If( AlreadyArrive,"A",If( OnTheWay,"B",""))]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[CaseType]" sap:VirtualizedContainerService.HintSize="1108,1662" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <Switch.Default>
+                <Sequence sap:VirtualizedContainerService.HintSize="305,155" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[out_comment]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">1</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </Switch.Default>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence x:Key="A" sap:VirtualizedContainerService.HintSize="1068,1455" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1026,61" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="CASEA" />
+                <Parallel sap:VirtualizedContainerService.HintSize="1026,981" sap2010:WorkflowViewState.IdRef="Parallel_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,935" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                      <ui:GetValue.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e9ee0a00-539e-4315-b8a3-d61783ecbb93" InformativeScreenshot="e2ae6a5c9563c511c6bf38ce0f82130c" Selector="[&quot;&lt;html app='chrome.exe' htmlwindowname='_abck' title='HMM Customer Plus' url='https://www.hmm21.com/cms/business/ebiz/trackTrace/trackTrace/index.jsp?type=3&amp;amp;number=&quot;+in_bookingNumber+&quot;&amp;amp;is_quick=Y&amp;amp;quick_params=' /&gt;&lt;webctrl id='_frame1' tag='IFRAME' /&gt;&lt;webctrl parentid='viewForm' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Loading Port' rowName='Departure' /&gt;&quot;]" TimeoutMS="8000">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:GetValue.Target>
+                      <ui:GetValue.Value>
+                        <OutArgument x:TypeArguments="x:String">[out_estimatedDepartureDate]</OutArgument>
+                      </ui:GetValue.Value>
+                    </ui:GetValue>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[out_estimatedDepartureDate]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_6">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_estimatedDepartureDate]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[If(String.IsNullOrEmpty( out_estimatedDepartureDate),"", (out_estimatedDepartureDate.Replace("Coastal","").Replace("Actual", "")).TrimStart.TrimEnd)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_7">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_estimatedDepartureDate]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[if(String.IsNullOrEmpty( out_estimatedDepartureDate),"", Convert.ToDateTime(  out_estimatedDepartureDate).ToString("yyyy/MM/dd"))]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[out_estimatedDepartureDate]" />
+                  </Sequence>
+                  <Sequence sap:VirtualizedContainerService.HintSize="476,935" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,337" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                      <TryCatch.Try>
+                        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_6">
+                          <ui:GetValue.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e759e8d0-3f73-4f99-bba4-5ed1742caaf1" InformativeScreenshot="f89feb25e5029df63ac9b762083f4671" Selector="&lt;html app='chrome.exe' htmlwindowname='_abck' title='HMM Customer Plus' /&gt;&lt;webctrl id='_frame1' tag='IFRAME' /&gt;&lt;webctrl parentid='viewForm' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Destination' rowName='Arrival(ETB)' /&gt;" TimeoutMS="8000">
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:GetValue.Target>
+                          <ui:GetValue.Value>
+                            <OutArgument x:TypeArguments="x:String">[out_estimatedArrivalDate]</OutArgument>
+                          </ui:GetValue.Value>
+                        </ui:GetValue>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,175" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ActivityAction x:TypeArguments="s:Exception">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                            </ActivityAction.Argument>
+                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TD'_backup" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_7">
+                              <ui:GetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e759e8d0-3f73-4f99-bba4-5ed1742caaf1" InformativeScreenshot="40b988de3ffd20b9e293b162c2989419" Selector="&lt;html app='chrome.exe' htmlwindowname='_abck' title='HMM Customer Plus' /&gt;&lt;webctrl id='_frame1' tag='IFRAME' /&gt;&lt;webctrl parentid='viewForm' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Discharging Port' rowName='Departure' title='HMM Customer Plus' /&gt;" TimeoutMS="8000">
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:GetValue.Target>
+                              <ui:GetValue.Value>
+                                <OutArgument x:TypeArguments="x:String">[out_estimatedArrivalDate]</OutArgument>
+                              </ui:GetValue.Value>
+                            </ui:GetValue>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="[out_estimatedArrivalDate]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="Assign_8">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_estimatedArrivalDate]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty( out_estimatedArrivalDate),"", out_estimatedArrivalDate.TrimStart.TrimEnd.Substring(0,11)+" "+out_estimatedArrivalDate.TrimStart.TrimEnd.Substring(11))]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="[out_estimatedArrivalDate]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="Assign_9">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_estimatedArrivalDate]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty( out_estimatedArrivalDate),"", Convert.ToDateTime( out_estimatedArrivalDate).ToString("yyyy/MM/dd"))]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[out_estimatedArrivalDate]" />
+                  </Sequence>
+                </Parallel>
+                <If Condition="[String.IsNullOrEmpty( out_estimatedArrivalDate) or String.IsNullOrEmpty( out_estimatedDepartureDate)]" sap:VirtualizedContainerService.HintSize="1026,239" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_18">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_comment]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[If(string.IsNullOrEmpty(out_comment),"2",out_comment+",2")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+              </Sequence>
+              <Sequence x:Key="B" sap:VirtualizedContainerService.HintSize="526,424" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Parallel sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="Parallel_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,503" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                      <ui:GetValue.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e9ee0a00-539e-4315-b8a3-d61783ecbb93" InformativeScreenshot="2159809019e47d3b4094580ba98d2d24" Selector="[&quot;&lt;html app='chrome.exe' htmlwindowname='_abck' title='HMM Customer Plus' url='https://www.hmm21.com/cms/business/ebiz/trackTrace/trackTrace/index.jsp?type=3&amp;amp;number=&quot;+ in_bookingNumber+&quot;&amp;amp;is_quick=Y&amp;amp;quick_params=' /&gt;&lt;webctrl id='_frame1' tag='IFRAME' /&gt;&lt;webctrl aaname='Vessel/Voyage From Location Departure Date To Location Arrival D*' parentid='trackingForm' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Departure Date' tableRow='2' /&gt;&quot;]" TimeoutMS="8000">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:GetValue.Target>
+                      <ui:GetValue.Value>
+                        <OutArgument x:TypeArguments="x:String">[out_estimatedDepartureDate]</OutArgument>
+                      </ui:GetValue.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:GetValue>
+                    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_10">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_estimatedDepartureDate]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[If(String.IsNullOrEmpty( out_estimatedDepartureDate),"", (out_estimatedDepartureDate.Replace("Coastal","").Replace("Actual", "")).TrimStart.TrimEnd)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_11">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_estimatedDepartureDate]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[if(String.IsNullOrEmpty( out_estimatedDepartureDate),"", Convert.ToDateTime(  out_estimatedDepartureDate).ToString("yyyy/MM/dd"))]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[out_estimatedDepartureDate]" />
+                  </Sequence>
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,503" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_4">
+                      <ui:GetValue.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e759e8d0-3f73-4f99-bba4-5ed1742caaf1" InformativeScreenshot="5dd4e97839ea9270c1acf27ba88cafbc" Selector="[&quot;&lt;html app='chrome.exe' htmlwindowname='_abck' title='HMM Customer Plus' url='https://www.hmm21.com/cms/business/ebiz/trackTrace/trackTrace/index.jsp?type=3&amp;amp;number=&quot;+ in_bookingNumber+&quot;&amp;amp;is_quick=Y&amp;amp;quick_params=' /&gt;&lt;webctrl id='_frame1' tag='IFRAME' /&gt;&lt;webctrl aaname='Vessel/Voyage From Location Departure Date To Location Arrival D*' parentid='trackingForm' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Arrival Date' tableRow='2' /&gt;&quot;]" TimeoutMS="8000">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:GetValue.Target>
+                      <ui:GetValue.Value>
+                        <OutArgument x:TypeArguments="x:String">[out_estimatedArrivalDate]</OutArgument>
+                      </ui:GetValue.Value>
+                    </ui:GetValue>
+                    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_12">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_estimatedArrivalDate]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty( out_estimatedArrivalDate),"", (out_estimatedArrivalDate.Replace("Coastal","").Replace("Actual", "")).TrimStart.TrimEnd)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_13">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_estimatedArrivalDate]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[if(String.IsNullOrEmpty( out_estimatedArrivalDate),"", Convert.ToDateTime( out_estimatedArrivalDate).ToString("yyyy/MM/dd"))]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[out_estimatedArrivalDate]" />
+                  </Sequence>
+                </Parallel>
+                <If Condition="[String.IsNullOrEmpty( out_estimatedArrivalDate) or String.IsNullOrEmpty( out_estimatedDepartureDate)]" sap:VirtualizedContainerService.HintSize="484,239" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="263,61" sap2010:WorkflowViewState.IdRef="Assign_19">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_comment]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[If(string.IsNullOrEmpty(out_comment),"2",out_comment+",2")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+              </Sequence>
+            </Switch>
+            <Sequence DisplayName="Take Screen Shot_Sequence" sap:VirtualizedContainerService.HintSize="1108,1178" sap2010:WorkflowViewState.IdRef="Sequence_16">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="ui:Image" Name="ScreenShot" />
+                <Variable x:TypeArguments="x:String" Name="ScreenShotpath" />
+                <Variable x:TypeArguments="x:Int32" Name="downcount" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="412,61" sap2010:WorkflowViewState.IdRef="Assign_16">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[downcount]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="412,473" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                <ui:InterruptibleDoWhile.Body>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,308" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" Activate="True" DelayBefore="50" DelayMS="50" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="down" KeyModifiers="None" SendWindowMessages="True" SpecialKey="True">
+                      <ui:SendHotkey.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="024b8e21-12aa-4bf2-a4cf-e246a6367b62">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:SendHotkey.Target>
+                    </ui:SendHotkey>
+                    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[downcount]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">[1+downcount]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </ui:InterruptibleDoWhile.Body>
+                <ui:InterruptibleDoWhile.Condition>
+                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="downcount&lt;=7" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                </ui:InterruptibleDoWhile.Condition>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:InterruptibleDoWhile>
+              <ui:TakeScreenshot DisplayName="Take Screenshot 'DIV'" sap:VirtualizedContainerService.HintSize="412,106" sap2010:WorkflowViewState.IdRef="TakeScreenshot_1" Screenshot="[ScreenShot]" WaitBefore="1500">
+                <ui:TakeScreenshot.Target>
+                  <ui:Target Element="{x:Null}" Id="d038ca3f-f3d4-4c31-a3e4-84b88d9ce7a3" InformativeScreenshot="8e1f40dfbd0353b50464e5f79e4af64e" Selector="&lt;html app='chrome.exe' htmlwindowname='_abck' title='HMM Customer Plus' /&gt;&lt;webctrl tag='BODY' /&gt;">
+                    <ui:Target.ClippingRegion>
+                      <ui:Region Rectangle="9, 3, 1858, 949" />
+                    </ui:Target.ClippingRegion>
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TakeScreenshot.Target>
+              </ui:TakeScreenshot>
+              <Assign sap:VirtualizedContainerService.HintSize="412,61" sap2010:WorkflowViewState.IdRef="Assign_15">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[ScreenShotpath]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_SuccessScreenShotFolder+in_PoNumber+"_"+in_bookingNumber+".png"]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:SaveImage DisplayName="Save Image" FileName="[ScreenShotpath]" sap:VirtualizedContainerService.HintSize="412,92" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[ScreenShot]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Succesful Info：Screen SHOT path&quot;+vbCr+&#xA;ScreenShotpath+vbCr+&#xA; &quot;out_comment：&quot;+out_comment+vbCr+&#xA; &quot;out_estimatedArrivalDate：&quot;+out_estimatedArrivalDate+vbCr+&#xA; &quot;out_estimatedDepartureDate：&quot;+out_estimatedDepartureDate]" />
+            </Sequence>
+            <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="842,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -1088, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="eb758f7cb80cd1e8e4aa2d726e34b7d9.png" Selector="&lt;html app='chrome.exe' url='https://www.hmm21.com/cms/company/engn/index.jsp' /&gt;" Url="https://www.hmm21.com/cms/company/engn/index.jsp" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe HMM'" sap:VirtualizedContainerService.HintSize="918,260" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="506a3c370a968eff07d86aff31a895ed" Selector="&lt;html app='chrome.exe' omit:htmlwindowname='_abck' title='HMM Customer Plus' /&gt;">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_18">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:CloseTab Browser="{x:Null}" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="CloseTab_2" />
+          </Sequence>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:BrowserScope>
+  </Sequence>
+</Activity>
