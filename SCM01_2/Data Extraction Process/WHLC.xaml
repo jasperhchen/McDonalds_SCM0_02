@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MDMU" this:MDMU.in_bookingNumber="163BA04874" this:MDMU.in_counter="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MDMU" this:MDMU.in_counter="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_bookingNumber" Type="InArgument(x:String)" />
     <x:Property Name="out_estimatedArrivalDate" Type="OutArgument(x:String)" />
@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1734,5478</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1734,5438</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>MDMU_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="74">
@@ -92,10 +92,9 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="WHLC" sap:VirtualizedContainerService.HintSize="1744,5413" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="WHLC" sap:VirtualizedContainerService.HintSize="1744,5373" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
       <Variable x:TypeArguments="sd:DataTable" Name="Dt1" />
@@ -109,13 +108,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: WAN HAI LINES LTD." sap:VirtualizedContainerService.HintSize="1702,1130" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="IfNotOpen" Timeout="6" Version="V1" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="SingleWindow" CloseMode="Never" DisplayName="Use Browser Chrome: WAN HAI LINES LTD." sap:VirtualizedContainerService.HintSize="1702,1119" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="IfNotOpen" Timeout="6" Version="V1" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,914" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,823" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="AlreadyArrive" />
               <Variable x:TypeArguments="x:Boolean" Name="OnTheWay" />
@@ -147,7 +146,7 @@
             </uix:NTypeInto>
             <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_7">
               <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,372" sap2010:WorkflowViewState.IdRef="Sequence_30">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -162,23 +161,6 @@
                       </ui:Target>
                     </ui:SetValue.Target>
                   </ui:SetValue>
-                </Sequence>
-              </ui:CommentOut.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:CommentOut>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-              <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
                   <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  Query'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
@@ -233,35 +215,6 @@
         <InArgument x:TypeArguments="x:Boolean">False</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1702,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_24">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
-            <ui:UiElementExists.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f3fa8cb8-0d06-42d8-a0bd-4dff8e180795" InformativeScreenshot="ebabe0034a03bddf4e8741275d2f254d" Selector="&lt;html app='chrome.exe' title='https://www.wanhai.com/views/cargoTrack/CargoTrack.xhtml;jsessionid=4C70EBD1D7527BCE306D851B99A86ECC' /&gt;&lt;webctrl id='main-iframe' tag='IFRAME' /&gt;&lt;webctrl name='a-z92j52e9bwqh' tag='IFRAME' /&gt;&lt;webctrl id='rc-anchor-container' tag='DIV' /&gt;">
-                <ui:Target.TimeoutMS>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:Target.TimeoutMS>
-                <ui:Target.WaitForReady>
-                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                </ui:Target.WaitForReady>
-              </ui:Target>
-            </ui:UiElementExists.Target>
-          </ui:UiElementExists>
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
     <ui:UiElementExists DisplayName="Element Exists 'TD'" Exists="[MoreDetailAppear]" sap:VirtualizedContainerService.HintSize="1702,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="02e94977-2326-4167-98ef-0af99cd10c8d" InformativeScreenshot="7b79168a2d031e84d12d1e8b61ff268e" Selector="[&quot;&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tag='TD' aaname='&quot;+in_bookingNumber+&quot;*' /&gt;&quot;]" TimeoutMS="6000">
@@ -272,7 +225,7 @@
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1702,61" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[MoreDetailAppear.ToString]" />
-    <If Condition="[MoreDetailAppear]" sap:VirtualizedContainerService.HintSize="1702,2635" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[MoreDetailAppear]" sap:VirtualizedContainerService.HintSize="1702,2697" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -280,20 +233,20 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="1394,2477" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence sap:VirtualizedContainerService.HintSize="1394,2539" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: WAN HAI LINES LTD." sap:VirtualizedContainerService.HintSize="1352,2385" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" IsIncognito="False" OpenMode="Never" Timeout="6" Version="V1">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: WAN HAI LINES LTD." sap:VirtualizedContainerService.HintSize="1352,2447" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" IsIncognito="False" OpenMode="Never" Timeout="6" Version="V1">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1318,2169" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1318,2231" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -360,6 +313,7 @@
                       <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                     </Assign.Value>
                   </Assign>
+                  <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="1276,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
                   <Parallel sap:VirtualizedContainerService.HintSize="1276,152" sap2010:WorkflowViewState.IdRef="Parallel_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -369,20 +323,12 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:UiElementExists DisplayName="Estimated Departure Date Exists" Exists="[EstimatedDepartureDateAppear]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                       <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="480f05cf-16e1-488c-8024-6edd651f3a32" InformativeScreenshot="f6fb3d4e72f1045792871fbad0c05d7b" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl aaname='Place of Receipt Close Date Port of Loading Estimated Departure *' parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Close Date' rowName='Port of Loading' /&gt;" TimeoutMS="8000">
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="480f05cf-16e1-488c-8024-6edd651f3a32" InformativeScreenshot="f6fb3d4e72f1045792871fbad0c05d7b" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl aaname='Place of Receipt Close Date Port of Loading Estimated Departure *' parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Close Date' rowName='Port of Loading' /&gt;" TimeoutMS="6000" WaitForReady="INTERACTIVE" />
                       </ui:UiElementExists.Target>
                     </ui:UiElementExists>
                     <ui:UiElementExists DisplayName="Estimated Arrival Date Exists" Exists="[EstimatedArrivalDateAppear]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                       <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ce90b0ec-0e94-4913-b101-cbc800c273ce" InformativeScreenshot="6faa32e414b63e2004bb3f790b81b3f6" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl aaname='Place of Receipt Close Date Port of Loading Estimated Departure *' parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Close Date' rowName='Place of Delivery' /&gt;" TimeoutMS="8000">
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ce90b0ec-0e94-4913-b101-cbc800c273ce" InformativeScreenshot="6faa32e414b63e2004bb3f790b81b3f6" Selector="&lt;html app='chrome.exe' title='WAN HAI LINES LTD.' idx='*' /&gt;&lt;webctrl aaname='Place of Receipt Close Date Port of Loading Estimated Departure *' parentid='cargoTrackListBean' tag='TABLE' /&gt;&lt;webctrl tag='TD' colName='Close Date' rowName='Place of Delivery' /&gt;" TimeoutMS="6000" WaitForReady="INTERACTIVE" />
                       </ui:UiElementExists.Target>
                     </ui:UiElementExists>
                   </Parallel>
@@ -411,6 +357,7 @@
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_5">
@@ -448,6 +395,7 @@
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_6">

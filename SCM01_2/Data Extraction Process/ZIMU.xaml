@@ -11,10 +11,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1133,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1052,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Flowchart_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="37">
+    <scg:List x:TypeArguments="x:String" Capacity="74">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -52,10 +52,11 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>System.Globalization</x:String>
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="68">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -90,7 +91,6 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Flowchart" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -141,7 +141,7 @@
           <av:Size x:Key="ShapeSize">200,66</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="2204,6192" sap2010:WorkflowViewState.IdRef="Sequence_10">
+      <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="2346,6470" sap2010:WorkflowViewState.IdRef="Sequence_10">
         <Sequence.Variables>
           <Variable x:TypeArguments="sd:DataTable" Name="DataSet" />
           <Variable x:TypeArguments="sd:DataTable" Name="ZIMU_Reference_Table" />
@@ -151,23 +151,53 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2162,330" sap2010:WorkflowViewState.IdRef="CommentOut_23">
+        <ui:CommentOut DisplayName="TEST_Comment Out" sap:VirtualizedContainerService.HintSize="2304,51" sap2010:WorkflowViewState.IdRef="CommentOut_22">
           <ui:CommentOut.Body>
-            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,252" sap2010:WorkflowViewState.IdRef="Sequence_65">
+            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,345" sap2010:WorkflowViewState.IdRef="Sequence_66">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:MultipleAssign DisplayName="test_Multiple Assign" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign DisplayName="Init_Multiple Assign" sap:VirtualizedContainerService.HintSize="334,253" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                 <ui:MultipleAssign.AssignOperations>
-                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
                       <ui:AssignOperation.To>
                         <OutArgument x:TypeArguments="x:String">[in_Port]</OutArgument>
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
-                        <InArgument x:TypeArguments="x:String">TAICHUNG, TAIWAN</InArgument>
+                        <InArgument x:TypeArguments="x:String">TAOYUAN, TAIWAN</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[out_Commend]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[out_ETD]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -175,7 +205,7 @@
                         <OutArgument x:TypeArguments="x:String">[in_BookingNumber]</OutArgument>
                       </ui:AssignOperation.To>
                       <ui:AssignOperation.Value>
-                        <InArgument x:TypeArguments="x:String">ZIMUSEA905335</InArgument>
+                        <InArgument x:TypeArguments="x:String">ZIMUSEA905522</InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -193,14 +223,56 @@
               </ui:MultipleAssign>
             </Sequence>
           </ui:CommentOut.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
         </ui:CommentOut>
-        <uix:NApplicationCard sap2010:Annotation.AnnotationText="https://www.zim.com/tools/track-a-shipment&#xA;&#xA;https://www.zim.com/za-hant/tools/track-a-shipment" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Track Shipment, Container Tracing | ZIM" sap:VirtualizedContainerService.HintSize="2162,5076" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" Version="V1" WindowResize="Maximize">
+        <ui:MultipleAssign DisplayName="Init_Multiple Assign" sap:VirtualizedContainerService.HintSize="2304,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[out_Commend]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[out_ETD]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+        <uix:NApplicationCard sap2010:Annotation.AnnotationText="https://www.zim.com/tools/track-a-shipment&#xA;&#xA;https://www.zim.com/za-hant/tools/track-a-shipment" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Track Shipment, Container Tracing | ZIM" sap:VirtualizedContainerService.HintSize="2304,5433" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" Version="V1" WindowResize="Maximize">
           <uix:NApplicationCard.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1631,4803" sap2010:WorkflowViewState.IdRef="Sequence_50">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="2270,5160" sap2010:WorkflowViewState.IdRef="Sequence_50">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Boolean" Name="noresult" />
                   <Variable x:TypeArguments="x:Boolean" Name="Noresult2" />
@@ -211,7 +283,7 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'editable text'" sap:VirtualizedContainerService.HintSize="1589,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_BookingNumber]">
+                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'editable text'" sap:VirtualizedContainerService.HintSize="2228,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_BookingNumber]">
                   <ui:TypeInto.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dc815a45-df46-4ec9-8d85-629ad8ba3ddc" InformativeScreenshot="f5d8db2f3ae69b6f257237a601140ed5" Selector="&lt;webctrl id='ConsNumber' tag='INPUT' type='text' /&gt;">
                       <ui:Target.TimeoutMS>
@@ -223,7 +295,7 @@
                     </ui:Target>
                   </ui:TypeInto.Target>
                 </ui:TypeInto>
-                <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  查找貨件'" sap:VirtualizedContainerService.HintSize="1589,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  查找貨件'" sap:VirtualizedContainerService.HintSize="2228,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                   <ui:Click.CursorPosition>
                     <ui:CursorPosition Position="Center">
                       <ui:CursorPosition.OffsetX>
@@ -245,7 +317,7 @@
                     </ui:Target>
                   </ui:Click.Target>
                 </ui:Click>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1589,51" sap2010:WorkflowViewState.IdRef="CommentOut_13">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="2228,51" sap2010:WorkflowViewState.IdRef="CommentOut_13">
                   <ui:CommentOut.Body>
                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="543,819" sap2010:WorkflowViewState.IdRef="Sequence_40">
                       <sap:WorkflowViewStateService.ViewState>
@@ -306,7 +378,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:CommentOut>
-                <Parallel sap:VirtualizedContainerService.HintSize="1589,152" sap2010:WorkflowViewState.IdRef="Parallel_1">
+                <Parallel sap:VirtualizedContainerService.HintSize="2228,152" sap2010:WorkflowViewState.IdRef="Parallel_1">
                   <ui:UiElementExists DisplayName="Element Exists 'P'" Exists="[noresult]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
                     <ui:UiElementExists.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4e130d9a-81c9-46d9-a24d-95d8fedf89da" InformativeScreenshot="e3020313d1de09230b0ffb65a26bd0cc" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;span&amp;gt;span' id='ConsNumber-error' tag='SPAN' /&gt;" TimeoutMS="7000">
@@ -326,7 +398,7 @@
                     </ui:UiElementExists.Target>
                   </ui:UiElementExists>
                 </Parallel>
-                <If Condition="[noresult or Noresult2]" sap:VirtualizedContainerService.HintSize="1589,3975" sap2010:WorkflowViewState.IdRef="If_16">
+                <If Condition="[noresult or Noresult2]" sap:VirtualizedContainerService.HintSize="2228,4332" sap2010:WorkflowViewState.IdRef="If_16">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -344,20 +416,20 @@
                     </Assign>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="1281,3816" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                    <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="1920,4173" sap2010:WorkflowViewState.IdRef="Sequence_49">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'TrackShip Chrome_wi'" sap:VirtualizedContainerService.HintSize="1239,3722" sap2010:WorkflowViewState.IdRef="WindowScope_5" InformativeScreenshot="9039dc1fd0839a5d4028e5f0810301d0" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Track Shipment, Container Tracing | ZIM - Google Chrome' /&gt;">
+                      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'TrackShip Chrome_wi'" sap:VirtualizedContainerService.HintSize="1878,4079" sap2010:WorkflowViewState.IdRef="WindowScope_5" InformativeScreenshot="9039dc1fd0839a5d4028e5f0810301d0" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Track Shipment, Container Tracing | ZIM - Google Chrome' /&gt;">
                         <ui:WindowScope.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1205,3576" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1844,3933" sap2010:WorkflowViewState.IdRef="Sequence_48">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
                               </Sequence.Variables>
@@ -367,8 +439,8 @@
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="1163,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
-                              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Check表二_Extract Structured Data 'table'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="1163,106" sap2010:WorkflowViewState.IdRef="ExtractData_5" MaxNumberOfResults="0" SimulateClick="True">
+                              <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="1802,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Check表二_Extract Structured Data 'table'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="1802,106" sap2010:WorkflowViewState.IdRef="ExtractData_5" MaxNumberOfResults="0" SimulateClick="True">
                                 <ui:ExtractData.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6cb2d2b8-051d-4fdd-8e82-61d67ea785b5" InformativeScreenshot="c2b4718563054529860fcecf0c2614bc" Selector="&lt;ctrl name='Track Shipment, Container Tracing | ZIM' role='document' /&gt;&lt;ctrl idx='2' role='row' /&gt;&lt;ctrl name='*' role='cell' /&gt;&lt;ctrl idx='2' role='table' /&gt;">
                                     <ui:Target.TimeoutMS>
@@ -386,7 +458,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:ExtractData>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1163,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;table count:&quot;+ExtractDataTable.Rows.Count.ToString]">
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1802,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;table count:&quot;+ExtractDataTable.Rows.Count.ToString]">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -394,7 +466,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:LogMessage>
-                              <If Condition="[ExtractDataTable.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="1163,2807" sap2010:WorkflowViewState.IdRef="If_13">
+                              <If Condition="[ExtractDataTable.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="1802,3164" sap2010:WorkflowViewState.IdRef="If_13">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -402,7 +474,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <If.Then>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="918,2650" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="1231,3007" sap2010:WorkflowViewState.IdRef="Sequence_46">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="x:String" Name="ExtractDataTableTxt" />
                                       <Variable x:TypeArguments="x:String" Name="departPort" />
@@ -415,7 +487,7 @@
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <uix:NGetText DisplayName="Get Text 'Port of Loading (POL)'" sap:VirtualizedContainerService.HintSize="876,166" sap2010:WorkflowViewState.IdRef="NGetText_1">
+                                    <uix:NGetText DisplayName="Get Text 'Port of Loading (POL)'" sap:VirtualizedContainerService.HintSize="1189,166" sap2010:WorkflowViewState.IdRef="NGetText_1">
                                       <uix:NGetText.Target>
                                         <uix:TargetAnchorable BrowserURL="https://www.zim.com/tools/track-a-shipment?consnumber=ZIMULAX0151026" DesignTimeRectangle="368, 285, 195, 30" FriendlyName="'SEATTLE (WA), U.S.A.'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;dl&amp;gt;dd' tag='DD' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;dl&amp;gt;dd' tag='DD' type='' /&gt;" InformativeScreenshot="410b42d1207b731a9301188a0500edbc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Track Shipment, Container Tracing | ZIM' /&gt;" SearchSteps="FuzzySelector">
                                           <uix:TargetAnchorable.Anchors>
@@ -429,7 +501,7 @@
                                         <OutArgument x:TypeArguments="x:String">[departPort]</OutArgument>
                                       </uix:NGetText.Text>
                                     </uix:NGetText>
-                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="876,51" sap2010:WorkflowViewState.IdRef="CommentOut_17">
+                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1189,51" sap2010:WorkflowViewState.IdRef="CommentOut_17">
                                       <ui:CommentOut.Body>
                                         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="305,152" sap2010:WorkflowViewState.IdRef="Sequence_52">
                                           <sap:WorkflowViewStateService.ViewState>
@@ -454,8 +526,8 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:CommentOut>
-                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="876,61" sap2010:WorkflowViewState.IdRef="WriteLine_25" Text="[&quot;departPort:&quot;+departPort]" />
-                                    <ui:FilterDataTable DataTable="[ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="876,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_5" OutputDataTable="[departTable]" SelectColumnsMode="Keep">
+                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1189,61" sap2010:WorkflowViewState.IdRef="WriteLine_25" Text="[&quot;departPort:&quot;+departPort]" />
+                                    <ui:FilterDataTable DataTable="[ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="1189,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_5" OutputDataTable="[departTable]" SelectColumnsMode="Keep">
                                       <ui:FilterDataTable.Filters>
                                         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                                           <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -482,7 +554,7 @@
                                         </scg:List>
                                       </ui:FilterDataTable.SelectColumns>
                                     </ui:FilterDataTable>
-                                    <If Condition="[departTable.Rows.Count&gt;0]" DisplayName="get ETD_If" sap:VirtualizedContainerService.HintSize="876,515" sap2010:WorkflowViewState.IdRef="If_10">
+                                    <If Condition="[departTable.Rows.Count&gt;0]" DisplayName="get ETD_If" sap:VirtualizedContainerService.HintSize="1189,515" sap2010:WorkflowViewState.IdRef="If_10">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -546,7 +618,7 @@
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <uix:NGetText DisplayName="Get Text 'Sailing Date'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_4">
+                                          <uix:NGetText DisplayName="Get Text 'Sailing Date'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_4" Timeout="8">
                                             <uix:NGetText.Target>
                                               <uix:TargetAnchorable BrowserURL="https://www.zim.com/tools/track-a-shipment?consnumber=ZIMULAX0150858" DesignTimeRectangle="599, 648, 195, 30" FriendlyName="'10-Sep-2021'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;dl&amp;gt;dd' idx='3' tag='DD' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;dl&amp;gt;dd' type='' tag='DD' /&gt;" InformativeScreenshot="c1755a8589aeb4bb88675961c70dbd94.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Track Shipment, Container Tracing | ZIM' /&gt;" SearchSteps="FuzzySelector">
                                                 <uix:TargetAnchorable.Anchors>
@@ -571,11 +643,11 @@
                                         </Sequence>
                                       </If.Else>
                                     </If>
-                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="876,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;in_Port:&quot;+in_Port]" />
-                                    <ui:FilterDataTable DataTable="[ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="876,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_6" OutputDataTable="[arrivalTable]" SelectColumnsMode="Keep">
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1189,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;in_Port:&quot;+in_Port]" />
+                                    <ui:FilterDataTable DataTable="[ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="1189,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_6" OutputDataTable="[arrivalTable]" SelectColumnsMode="Keep">
                                       <ui:FilterDataTable.Filters>
                                         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-                                          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+                                          <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
                                             <ui:FilterOperationArgument.Column>
                                               <InArgument x:TypeArguments="x:Int32">[2]</InArgument>
                                             </ui:FilterOperationArgument.Column>
@@ -599,7 +671,7 @@
                                         </scg:List>
                                       </ui:FilterDataTable.SelectColumns>
                                     </ui:FilterDataTable>
-                                    <If Condition="[arrivalTable.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="876,1074" sap2010:WorkflowViewState.IdRef="If_12">
+                                    <If Condition="[arrivalTable.Rows.Count&gt;0]" sap:VirtualizedContainerService.HintSize="1189,1431" sap2010:WorkflowViewState.IdRef="If_12">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -632,43 +704,97 @@
                                         </Sequence>
                                       </If.Then>
                                       <If.Else>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="526,917" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                                        <Sequence sap:VirtualizedContainerService.HintSize="839,1274" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                                          <Sequence.Variables>
+                                            <Variable x:TypeArguments="x:Boolean" Name="out_exist" />
+                                          </Sequence.Variables>
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <uix:NGetText DisplayName="Get Text 'Estimated Time'" sap:VirtualizedContainerService.HintSize="484,166" sap2010:WorkflowViewState.IdRef="NGetText_5">
-                                            <uix:NGetText.Target>
-                                              <uix:TargetAnchorable BrowserURL="https://www.zim.com/tools/track-a-shipment?consnumber=ZIMULAX0150858" DesignTimeRectangle="1062, 618, 195, 30" FriendlyName="'ETA: 04-Oct-2021'" FullSelectorArgument="&lt;webctrl id='etaDate' tag='DT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='etaDate' tag='DT' type='' aaname=' 04-Oct-2021' /&gt;" InformativeScreenshot="a01c0ca20ae5f1bd98f96270a0b8aef8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Track Shipment, Container Tracing | ZIM' /&gt;" SearchSteps="FuzzySelector">
-                                                <uix:TargetAnchorable.Anchors>
-                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                    <uix:Target DesignTimeRectangle="1062, 655, 157, 19" FriendlyName="'Estimated Time'" FullSelectorArgument="&lt;webctrl tag='SMALL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SMALL' type='' aaname='Estimated Time of Arrival' check:text='Estimated Time of Arrival' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
-                                                  </scg:List>
-                                                </uix:TargetAnchorable.Anchors>
-                                              </uix:TargetAnchorable>
-                                            </uix:NGetText.Target>
-                                            <uix:NGetText.Text>
-                                              <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
-                                            </uix:NGetText.Text>
-                                          </uix:NGetText>
-                                          <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_40">
-                                            <Assign.To>
-                                              <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
-                                            </Assign.To>
-                                            <Assign.Value>
-                                              <InArgument x:TypeArguments="x:String">[Split(out_ETA,":")(1).Trim]</InArgument>
-                                            </Assign.Value>
-                                          </Assign>
-                                          <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_41">
-                                            <Assign.To>
-                                              <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
-                                            </Assign.To>
-                                            <Assign.Value>
-                                              <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(out_ETA,"dd-MMM-yyyy",System.Globalization.CultureInfo.CreateSpecificCulture("en-US")).ToString("yyyy/MM/dd")]</InArgument>
-                                            </Assign.Value>
-                                          </Assign>
-                                          <If Condition="[out_ETA.Length=0]" sap:VirtualizedContainerService.HintSize="484,328" sap2010:WorkflowViewState.IdRef="If_15">
+                                          <ui:UiElementExists DisplayName="Element Exists" Exists="[out_exist]" sap:VirtualizedContainerService.HintSize="797,68" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                                            <ui:UiElementExists.Target>
+                                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="84fe9409-2103-4461-90e1-77bae2e053d9" Selector="&lt;html app='chrome.exe' title='Track Shipment, Container Tracing | ZIM' /&gt;&lt;webctrl id='etaDate' tag='DT' /&gt;" TimeoutMS="5000">
+                                                <ui:Target.WaitForReady>
+                                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                </ui:Target.WaitForReady>
+                                              </ui:Target>
+                                            </ui:UiElementExists.Target>
+                                          </ui:UiElementExists>
+                                          <If Condition="[out_exist]" sap:VirtualizedContainerService.HintSize="797,615" sap2010:WorkflowViewState.IdRef="If_18">
+                                            <If.Then>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="376,458" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <uix:NGetText DisplayName="Get Text 'Estimated Time'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_5" Timeout="5">
+                                                  <uix:NGetText.Target>
+                                                    <uix:TargetAnchorable BrowserURL="https://www.zim.com/tools/track-a-shipment?consnumber=ZIMULAX0150858" DesignTimeRectangle="1028, 322, 130, 20" FriendlyName="'ETA: 04-Oct-2021'" FullSelectorArgument="&lt;webctrl id='etaDate' tag='DT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='etaDate' tag='DT' type='' aaname=' 04-Oct-2021' /&gt;" InformativeScreenshot="e2b18a3de04274ad1dbdc4560139c17f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Track Shipment, Container Tracing | ZIM' /&gt;" SearchSteps="FuzzySelector">
+                                                      <uix:TargetAnchorable.Anchors>
+                                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                          <uix:Target DesignTimeRectangle="1028, 347, 105, 13" FriendlyName="'Estimated Time'" FullSelectorArgument="&lt;webctrl tag='SMALL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SMALL' type='' aaname='Estimated Time of Arrival' check:text='Estimated Time of Arrival' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                                                        </scg:List>
+                                                      </uix:TargetAnchorable.Anchors>
+                                                    </uix:TargetAnchorable>
+                                                  </uix:NGetText.Target>
+                                                  <uix:NGetText.Text>
+                                                    <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
+                                                  </uix:NGetText.Text>
+                                                </uix:NGetText>
+                                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_40">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">[Split(out_ETA,":")(1).Trim]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_41">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(out_ETA,"dd-MMM-yyyy",System.Globalization.CultureInfo.CreateSpecificCulture("en-US")).ToString("yyyy/MM/dd")]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence sap:VirtualizedContainerService.HintSize="376,358" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <uix:NGetText DisplayName="Get Text 'Arrival Date'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_6" Timeout="5">
+                                                  <uix:NGetText.Target>
+                                                    <uix:TargetAnchorable BrowserURL="https://www.zim.com/tools/track-a-shipment?consnumber=ZIMULAX0150974" DesignTimeRectangle="967, 607, 73, 13" FriendlyName="'11-Nov-2021'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;dl&amp;gt;dd' isleaf='1' tableCol='5' tag='DD' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;dl&amp;gt;dd' isleaf='1' type='' tag='DD' /&gt;" ImageBase64="" InformativeScreenshot="49a27e6230f0ed7c9d820abec8f850db.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Track Shipment, Container Tracing | ZIM' /&gt;" SearchSteps="Selector">
+                                                      <uix:TargetAnchorable.Anchors>
+                                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                          <uix:Target DesignTimeRectangle="967, 594, 73, 13" FriendlyName="'Arrival Date'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;dl&amp;gt;dt' idx='2' isleaf='1' tableCol='5' tag='DT' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;dl&amp;gt;dt' aaname='Arrival Date' isleaf='1' type='' tag='DT' check:text='Arrival Date' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE0AAAARCAYAAACYRSE8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJhSURBVFhH7ZXPa9NgGMf9g3LLqZBDL6WHnXbYKSfZoNST0rFcHPSSSys75LAhFhrYofRQhUJw0DKGFqrCpN20Q0pg2kLLRmFkIBELX5/3TbIkOmcWRuchXwhJ3t/P5/nmyQMkurUSaDGUQIuhBFoM/QHN2tcgSFswLtyGO1JvuwBh+8h9A86NEu1DbXSlchU0zO9uz/+v36BZaBULEDMF5I2p2/Y3DaHLCsqHP933m3UttPU2zunZ+qAjm6ng3Q+nL6wpGutRzrM4haFddrAhVfCmq0N0A+LB5VTImRIaJ23kJXp+xIL4zIMp94d4vsLuNHjG+mnctwF0RYFILkoX2xjPb4bGEsDWULuUgEkHak4hByqQq29Rpz08R+aNrzBfaUhTUsVlDY3TaAm7a4WgWa0tCM/ew54focwgnbnBrb2ESYHjjEEpQjfZaMcBDNag+hTZ3SHsboWD+LJH62wewJp/RJmC1T79C5rvpl6lgGx1QPBeY5WViVnAaaMmZGkHrUvA7uxAULz5i1UAmgVj08+qk9lpODgOzYEZhIaTOrIEtkZgeHCTNjaW/XXYmKhOs/t1yEveXLZXAFpfv1rTuXT0+PzFyod2cYDHksazyHVIB8w1cRwFGncmuW1FRW3kAEoTIJucpkaA5te0oKuY09heTp1dbXpOo7YJTZrPYI7u5+dxBY1/mmtN8C+PidcnFS92I0AjcSgEeUzPnlvEhyXIroOuheY6Jvj3HO85NSv1hOZSKaid0lg6W4rGBWuasFSEuk8g70HhH0GiSEqgxVACLYYSaDGUQIuhBNqtBfwC1ptYFuaARAQAAAAASUVORK5CYII=" SearchSteps="Selector" />
+                                                        </scg:List>
+                                                      </uix:TargetAnchorable.Anchors>
+                                                    </uix:TargetAnchorable>
+                                                  </uix:NGetText.Target>
+                                                  <uix:NGetText.Text>
+                                                    <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
+                                                  </uix:NGetText.Text>
+                                                </uix:NGetText>
+                                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_50">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(out_ETA,"dd-MMM-yyyy",System.Globalization.CultureInfo.CreateSpecificCulture("en-US")).ToString("yyyy/MM/dd")]</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                          <If Condition="[out_ETA.Length=0]" sap:VirtualizedContainerService.HintSize="797,328" sap2010:WorkflowViewState.IdRef="If_15">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -693,7 +819,7 @@
                                               </Sequence>
                                             </If.Then>
                                           </If>
-                                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CommentOut_20">
+                                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="797,51" sap2010:WorkflowViewState.IdRef="CommentOut_20">
                                             <ui:CommentOut.Body>
                                               <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_62">
                                                 <sap:WorkflowViewStateService.ViewState>
@@ -716,14 +842,14 @@
                                   </Sequence>
                                 </If.Then>
                                 <If.Else>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="526,1114" sap2010:WorkflowViewState.IdRef="Sequence_47">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <uix:NGetText DisplayName="Get Text 'Sailing Date'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_2">
+                                    <uix:NGetText DisplayName="Get Text 'Sailing Date'" sap:VirtualizedContainerService.HintSize="484,166" sap2010:WorkflowViewState.IdRef="NGetText_2">
                                       <uix:NGetText.Target>
                                         <uix:TargetAnchorable BrowserURL="https://www.zim.com/tools/track-a-shipment?consnumber=ZIMULAX0150858" DesignTimeRectangle="599, 648, 195, 30" FriendlyName="'10-Sep-2021'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;dl&amp;gt;dd' idx='3' tag='DD' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;dl&amp;gt;dd' type='' tag='DD' /&gt;" InformativeScreenshot="c1755a8589aeb4bb88675961c70dbd94.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Track Shipment, Container Tracing | ZIM' /&gt;" SearchSteps="FuzzySelector">
                                           <uix:TargetAnchorable.Anchors>
@@ -737,8 +863,8 @@
                                         <OutArgument x:TypeArguments="x:String">[out_ETD]</OutArgument>
                                       </uix:NGetText.Text>
                                     </uix:NGetText>
-                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_31" Text="[&quot;out_ETD:&quot;+out_ETD]" />
-                                    <uix:NGetText DisplayName="Get Text 'Estimated Time'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_3">
+                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_31" Text="[&quot;out_ETD:&quot;+out_ETD]" />
+                                    <uix:NGetText DisplayName="Get Text 'Estimated Time'" sap:VirtualizedContainerService.HintSize="484,166" sap2010:WorkflowViewState.IdRef="NGetText_3">
                                       <uix:NGetText.Target>
                                         <uix:TargetAnchorable BrowserURL="https://www.zim.com/tools/track-a-shipment?consnumber=ZIMULAX0150858" DesignTimeRectangle="1062, 618, 195, 30" FriendlyName="'ETA: 04-Oct-2021'" FullSelectorArgument="&lt;webctrl id='etaDate' tag='DT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='etaDate' tag='DT' type='' aaname=' 04-Oct-2021' /&gt;" InformativeScreenshot="a01c0ca20ae5f1bd98f96270a0b8aef8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Track Shipment, Container Tracing | ZIM' /&gt;" SearchSteps="FuzzySelector">
                                           <uix:TargetAnchorable.Anchors>
@@ -752,7 +878,7 @@
                                         <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
                                       </uix:NGetText.Text>
                                     </uix:NGetText>
-                                    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+                                    <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_29">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:String">[out_ETA]</OutArgument>
                                       </Assign.To>
@@ -760,10 +886,10 @@
                                         <InArgument x:TypeArguments="x:String">[Split(out_ETA,":")(1).Trim]</InArgument>
                                       </Assign.Value>
                                     </Assign>
-                                    <If Condition="[out_ETD.Length=0 And out_ETA.Length=0]" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_14">
+                                    <If Condition="[out_ETD.Length=0 And out_ETA.Length=0]" sap:VirtualizedContainerService.HintSize="484,409" sap2010:WorkflowViewState.IdRef="If_14">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
@@ -796,7 +922,7 @@
                                   </Sequence>
                                 </If.Else>
                               </If>
-                              <If Condition="[String.IsNullOrEmpty( out_ETA) Or String.IsNullOrEmpty( out_ETD)]" sap:VirtualizedContainerService.HintSize="1163,236" sap2010:WorkflowViewState.IdRef="If_17">
+                              <If Condition="[String.IsNullOrEmpty( out_ETA) Or String.IsNullOrEmpty( out_ETD)]" sap:VirtualizedContainerService.HintSize="1802,236" sap2010:WorkflowViewState.IdRef="If_17">
                                 <If.Then>
                                   <Assign sap:VirtualizedContainerService.HintSize="263,60" sap2010:WorkflowViewState.IdRef="Assign_48">
                                     <Assign.To>
@@ -808,7 +934,7 @@
                                   </Assign>
                                 </If.Then>
                               </If>
-                              <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="1163,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                              <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="1802,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
                             </Sequence>
                           </ActivityAction>
                         </ui:WindowScope.Body>
@@ -822,7 +948,7 @@
                     </Sequence>
                   </If.Else>
                 </If>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1589,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;in_Port_&quot;+in_Port+vbCr+&#xA;&quot;in_BookingNumber_&quot;+in_BookingNumber+vbCr+&#xA;&quot;out_ETA_&quot;+out_ETA+vbCr+&#xA;&quot;out_ETD_&quot;+out_ETD+vbCr+&#xA;&quot;out_Commend_&quot;+out_Commend]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="2228,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;in_Port_&quot;+in_Port+vbCr+&#xA;&quot;in_BookingNumber_&quot;+in_BookingNumber+vbCr+&#xA;&quot;out_ETA_&quot;+out_ETA+vbCr+&#xA;&quot;out_ETD_&quot;+out_ETD+vbCr+&#xA;&quot;out_Commend_&quot;+out_Commend]" />
               </Sequence>
             </ActivityAction>
           </uix:NApplicationCard.Body>
@@ -837,7 +963,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </uix:NApplicationCard>
-        <Sequence DisplayName="Take Screen Shot_Sequence" sap:VirtualizedContainerService.HintSize="2162,523" sap2010:WorkflowViewState.IdRef="Sequence_61">
+        <Sequence DisplayName="Take Screen Shot_Sequence" sap:VirtualizedContainerService.HintSize="2304,523" sap2010:WorkflowViewState.IdRef="Sequence_61">
           <Sequence.Variables>
             <Variable x:TypeArguments="ui:Image" Name="ScreenShot" />
             <Variable x:TypeArguments="x:String" Name="ScreenShotpath" />
